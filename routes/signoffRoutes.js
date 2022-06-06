@@ -8,7 +8,7 @@ router.use (expressValidator());
 
 
 //handles fetching client data from the db to populate the table
-router.get('/signoff', async(req,res)=>{
+router.get('/', async(req,res)=>{
     // to pick data from the 
     try {
         // helps return all the members in the collection clients
@@ -27,7 +27,7 @@ router.get('/signoff', async(req,res)=>{
 });
 // handling routes of dash for post to access reg form on route /dash
 // post from frontend using the dash route to backend 
-router.post('/signoff',(req,res)=>{
+router.post('/',(req,res)=>{
     // declaring the variables in the pug file name
     // we are requesting node js to foward the data and the body with the name given only uses name
     const name = req.body.name;
