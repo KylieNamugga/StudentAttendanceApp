@@ -1,10 +1,10 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const app = require('../../app.js');
+const app = require('../index');
 
 
 chai.use(chaiHttp);
-const { expect } = chai;
+// const { expect } = chai;
 
 
 describe('GET/signoff', () => {

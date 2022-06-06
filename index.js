@@ -62,3 +62,5 @@ mongoose.connect(DATABASE_URL).then(() => {
 }).catch(error => {
     console.error("Failed to start the server due to : ",error)
 })
+
+module.exports = app

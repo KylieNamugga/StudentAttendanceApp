@@ -13,7 +13,7 @@ router.get('/signoff', async(req,res)=>{
     try {
         // helps return all the members in the collection clients
         const data = await Signoff.find({}).sort({$natural:-1});
-        console.log('>>>>>> all clients',data);
+        
         // gives us the file dash and come with the client data or client has same info with data
         res.render('signoff', {signoffs : data})
       } catch(error) {
