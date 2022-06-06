@@ -39,7 +39,7 @@ router.post('/',(req,res)=>{
     // incase there is an error we serve back the form
     const errors = req.validationErrors();
     if (errors) {
-        res.render('/signoff')
+        res.render('/')
     }
     else{
         // new variable asssigin it 
@@ -61,7 +61,7 @@ router.post('/',(req,res)=>{
                 // we first flash a message confirm save in data base
                 // go to dashboard since user signed up
                 console.log('data saved in database', );
-                res.redirect('/signoff')
+                res.redirect('/')
             }
         })
     }
