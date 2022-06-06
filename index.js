@@ -37,23 +37,12 @@ app.get('*', (req, res) => {
   })
 
   // / spin up the server 
-// mongoose.connect(process.env.MONGODB_URI ||'mongodb://localhost:27017/student-attendance',
-// {
-//   useNewUrlParser:true,
-//   useUnifiedTopology:true,
-// },
-// ).then(() => {
-//     // successful connection
-//     app.listen(PORT, ()=> {
-//         let message = `${WELCOME_MESSAGE} http://localhost:${PORT}`
-//         console.log(message)
-//     })
-// }).catch(error => {
-//     console.error("Failed to start the server due to : ",error)
-// })
-
-// spin up the server 
-mongoose.connect(DATABASE_URL).then(() => {
+mongoose.connect(process.env.MONGODB_URI ||'mongodb://localhost:27017/student-attendance',
+{
+  useNewUrlParser:true,
+  useUnifiedTopology:true,
+},
+).then(() => {
     // successful connection
     app.listen(PORT, ()=> {
         let message = `${WELCOME_MESSAGE} http://localhost:${PORT}`
@@ -63,4 +52,7 @@ mongoose.connect(DATABASE_URL).then(() => {
     console.error("Failed to start the server due to : ",error)
 })
 
-module.exports = app
+
+
+
+// module.exports = app
