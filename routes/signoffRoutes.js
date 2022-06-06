@@ -27,7 +27,7 @@ router.get('/', async(req,res)=>{
 });
 // handling routes of dash for post to access reg form on route /dash
 // post from frontend using the dash route to backend 
-router.post('/signoff',(req,res)=>{
+router.post('/',(req,res)=>{
     // declaring the variables in the pug file name
     // we are requesting node js to foward the data and the body with the name given only uses name
     const name = req.body.name;
