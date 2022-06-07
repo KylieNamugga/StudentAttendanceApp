@@ -19,8 +19,6 @@ app.set('views', path.join(__dirname,'views'));
 // Setting directory for static files
 app.use(express.static(path.join(__dirname, "public")));
 
-// MIDDLEWARE SECTION
-
 // we are telling node to focus on information in the input fields
 app.use(express.urlencoded({extended:false}));
 
@@ -30,29 +28,37 @@ app.use (express.json());
 // using my imported routes
 app.use('/',signoffRoutes);
 
-
 // This message appears in case someone searches for a route that doesnt exist on our server
 app.get('*', (req, res) => {
     res.status(404).send('This is an invalid URL')
   })
 
-  // / spin up the server 
-mongoose.connect(process.env.MONGODB_URI ||'mongodb://localhost:27017/student-attendance',
-{
-  useNewUrlParser:true,
-  useUnifiedTopology:true,
-},
-).then(() => {
-    // successful connection
-    app.listen(PORT, ()=> {
-        let message = `${WELCOME_MESSAGE} http://localhost:${PORT}`
-        console.log(message)
-    })
+//   // / spin up the server 
+// mongoose.connect(process.env.MONGODB_URI ||'mongodb://localhost:27017/student-attendance',
+// {
+//   useNewUrlParser:true,
+//   useUnifiedTopology:true,
+// },
+// ).then(() => {
+//     // successful connection
+//     app.listen(PORT, ()=> {
+//         let message = `${WELCOME_MESSAGE} http://localhost:${PORT}`
+//         console.log(message)
+//     })
+// }).catch(error => {
+//     console.error("Failed to start the server due to : ",error)
+// })
+
+// spin up the server 
+mongoose.connect(DATABASE_URL).then(() => {
+  // successful connection
+  app.listen(PORT, ()=> {
+      let message = `${WELCOME_MESSAGE} http://localhost:${PORT}`
+      console.log(message)
+  })
 }).catch(error => {
-    console.error("Failed to start the server due to : ",error)
+  console.error("Failed to start the server due to : ",error)
 })
 
 
-
-
-// module.exports = app
+module.exports = app
