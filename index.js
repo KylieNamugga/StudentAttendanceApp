@@ -33,7 +33,7 @@ app.use('/',signoffRoutes);
 
 // This message appears in case someone searches for a route that doesnt exist on our server
 app.get('*', (req, res) => {
-    res.status(404).send('Hello,This is an invalid URL')
+    res.status(404).send('This is an invalid URL')
   })
 
   // / spin up the server 
